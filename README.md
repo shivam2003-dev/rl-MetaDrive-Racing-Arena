@@ -116,6 +116,10 @@ python -m metadrive_racing_arena.cli --config configs/tournament.yaml leaderboar
 
 The leaderboard is sorted by ELO and includes current ELO, wins, losses, draws, win rate, finish rate, crash rate, average reward, and average lap time.
 
+## Comprehensive Documentation
+
+Detailed system and research documentation lives in [docs/comprehensive/README.md](/Users/shivamkumar/Desktop/temp/metadrive/docs/comprehensive/README.md). It covers simulator design, PPO derivations, multi-agent RL, self-play, reward shaping, trajectory optimization, distributed RL infrastructure, Ray RLlib rollout workers, Kubernetes cluster design, GPU scaling, evaluation arenas, matchmaking, policy registry design, leaderboard backend architecture, curriculum learning, adversarial racing, imitation learning, transformer policies, hyperparameter tuning, evaluation metrics, and failure modes.
+
 ## Project Layout
 
 ```text
@@ -147,4 +151,3 @@ tests/
 ## Extending
 
 To add a new MetaDrive scenario, add an import candidate in `envs.py` and set `env.scenario` in YAML. To change competition rules, adjust `determine_outcome()` in `race.py`. To add metrics, extend `AgentRaceStats` and the leaderboard aggregation.
-
