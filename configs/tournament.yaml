@@ -1,0 +1,25 @@
+env:
+  scenario: multi_agent
+  map: SSSS
+  traffic_density: 0.0
+  traffic_mode: respawn
+  num_agents: 2
+  horizon: 1200
+  seed: 11
+  use_render: false
+  metadrive:
+    random_lane_width: false
+    random_lane_num: false
+
+tournament:
+  policies_dir: data/checkpoints
+  leaderboard_path: data/leaderboards/leaderboard.json
+  match_results_path: data/results/matches.jsonl
+  rating_history_path: data/leaderboards/rating_history.jsonl
+  races_per_pair: 5
+  max_pairs:
+  k_factor: 24.0
+  draw_margin: 0.05
+  seed: 11
+  tracks: [SSSS, X, O, C]
+

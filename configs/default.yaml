@@ -1,0 +1,55 @@
+env:
+  scenario: single_agent
+  map: SSSS
+  traffic_density: 0.1
+  traffic_mode: respawn
+  num_agents: 2
+  horizon: 1000
+  seed: 7
+  use_render: false
+  metadrive:
+    random_lane_width: false
+    random_lane_num: false
+
+ppo:
+  total_steps: 100000
+  rollout_steps: 2048
+  minibatch_size: 256
+  update_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  learning_rate: 0.0003
+  clip_coef: 0.2
+  value_coef: 0.5
+  entropy_coef: 0.01
+  max_grad_norm: 0.5
+  hidden_sizes: [256, 256]
+  deterministic_eval: true
+  device: auto
+
+training:
+  policy_id: ppo_driver
+  checkpoint_dir: data/checkpoints
+  log_dir: data/logs
+  save_interval_steps: 25000
+  eval_interval_steps: 25000
+  eval_episodes: 5
+
+evaluation:
+  episodes: 10
+  deterministic: true
+  render: false
+  results_dir: data/results
+
+tournament:
+  policies_dir: data/checkpoints
+  leaderboard_path: data/leaderboards/leaderboard.json
+  match_results_path: data/results/matches.jsonl
+  rating_history_path: data/leaderboards/rating_history.jsonl
+  races_per_pair: 3
+  max_pairs:
+  k_factor: 32.0
+  draw_margin: 0.05
+  seed: 7
+  tracks: [SSSS, X, O]
+
